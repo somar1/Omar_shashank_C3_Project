@@ -78,12 +78,9 @@ public class Restaurant {
 
     }
     
-    public int getOrderValue(List<Item> item){
-        int totalValue = 0;
-        for (Item myItem : item) {
-            totalValue += myItem.getPrice();
-        }
-        return totalValue;
+    public void  setOpeningTime(LocalTime openingtime)
+    {
+    	this.openingTime = openingtime;
     }
     public void  setClosingTime(LocalTime closingtime)
     {

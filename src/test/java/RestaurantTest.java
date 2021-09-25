@@ -56,7 +56,7 @@ class RestaurantTest {
     @Test
     public void is_restaurant_open_should_return_true_if_time_is_between_opening_and_closing_time(){
         //WRITE UNIT TEST CASE HERe       
-    
+    	restaurant.setOpeningTime( LocalTime.now().minusMinutes(1));
     	restaurant.setClosingTime( LocalTime.now().plusMinutes(1));
     	 assertTrue(restaurant.isRestaurantOpen());
     }
@@ -65,30 +65,14 @@ class RestaurantTest {
     public void is_restaurant_open_should_return_false_if_time_is_outside_opening_and_closing_time(){
         //WRITE UNIT TEST CASE HERE  
     	// I tried using mocking but was getting error
-    
+    	//restaurant.setOpeningTime( LocalTime.now().minusMinutes(1));
     	restaurant.setClosingTime( LocalTime.now().minusMinutes(1));
       
         assertFalse(restaurant.isRestaurantOpen());
     }
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    @Test
-    public void order_value_should_reduce_total_when_an_item_removed(){
-
-        menu = restaurant.getMenu();
-        int total = restaurant.getOrderValue(menu);
-        int afterTotal = menu.get(1).getPrice();
-        menu.remove(1);
-        assertEquals(total-afterTotal,restaurant.getOrderValue(menu));
-    }
-    
-    
-    @Test
-    public void order_value_should_get_total_when_collection_of_items_selected(){
-    	restaurantCreation();
-        menu = restaurant1.getMenu();
-        assertEquals(388,restaurant1.getOrderValue(menu));
-    }
+   
 
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>MENU<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     @Test
