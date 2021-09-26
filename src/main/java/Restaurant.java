@@ -78,6 +78,11 @@ public class Restaurant {
 
     }
     
+    public int getOrderValue(List<Item> item)
+    {
+    	return 0;
+    }
+    
     public void  setOpeningTime(LocalTime openingtime)
     {
     	this.openingTime = openingtime;

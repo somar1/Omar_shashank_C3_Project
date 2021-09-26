@@ -73,7 +73,21 @@ class RestaurantTest {
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
    
+    @Test
+    public void order_value_should_get_total_when_collection_of_items_selected(){
+        restaurantCreation();
+        menu = restaurant.getMenu();
+        assertEquals(506,restaurant.getOrderValue(menu));
+    }
 
+    @Test
+    public void order_value_should_reduce_total_when_an_item_removed(){
+        menu = restaurant.getMenu();
+        int total = restaurant.getOrderValue(menu);
+        int afterTotal = menu.get(1).getPrice();
+        menu.remove(1);
+        assertEquals(total-afterTotal,restaurant.getOrderValue(menu));
+    }
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>MENU<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     @Test
     public void adding_item_to_menu_should_increase_menu_size_by_1(){
