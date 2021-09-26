@@ -77,7 +77,7 @@ class RestaurantTest {
     public void order_value_should_get_total_when_collection_of_items_selected(){
         restaurantCreation();
         menu = restaurant.getMenu();
-        assertEquals(506,restaurant.getOrderValue(menu));
+        assertEquals(388,restaurant.getOrderValue(menu));
     }
 
     @Test
